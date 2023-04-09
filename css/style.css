@@ -7,7 +7,7 @@ body{
     justify-content: center;
 }
 
-.site{  
+.site{
 
 }
 .header{
@@ -28,6 +28,8 @@ body{
 }
 
 .cartas{
+    margin-left: 109px;
+    margin-right: 109px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,17 +59,17 @@ body{
     position: absolute;
 
 }
-
-.front {
-    transform: rotateY(-180deg);
+.nomeImagem{
+    display: none;
 }
-
-.back {
-    transform: rotateY(0deg);
-}
-
 .back-face {
     transform: rotateY(180deg);
+}
+.frontEscolha{
+    transform: rotateY(-180deg);
+}
+.backEscolha{
+    transform: rotateY(0deg);
 }
 img{
     width: 100px;
