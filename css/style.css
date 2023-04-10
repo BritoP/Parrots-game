@@ -71,3 +71,15 @@ img{
     width: 100px;
     height: 100px;
 }
+
+@media (max-width:335px){
+    body{
+        flex-direction: column;
+    }
+    .titulo{
+        font-size: 36px;
+        line-height: 42px;
+        text-align: center;
+
+    }
+}
