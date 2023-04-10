@@ -12,67 +12,67 @@ if(numeroCartasPrompt >= 4 && numeroCartasPrompt <= 14 && numeroCartasPrompt % 2
 const arrayCartas1 = new Array(numeroCartasPrompt/2);
 const arrayCartas2 = new Array(numeroCartasPrompt/2);
 
-const arrayDealer = [`<div onclick="fliparCarta(this)" class="card disponivel">
+const arrayDealer = [`<div onclick="fliparCarta(this)" class="card disponivel" data-test="card">
         <div class="nomeImagem">bobrossparrot.gif</div>
         <div class="front-face face">
-        <img src="Imagens&Gifs/back.png" alt="back">
+        <img src="Imagens&Gifs/back.png" alt="back" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="Imagens&Gifs/bobrossparrot.gif" alt="bobrossparrot">
+            <img src="Imagens&Gifs/bobrossparrot.gif" alt="bobrossparrot" data-test="face-up-image">
         </div>
     </div>`,
-    `<div onclick="fliparCarta(this)" class="card disponivel">
+    `<div onclick="fliparCarta(this)" class="card disponivel" data-test="card">
         <div class="nomeImagem">explodyparrot.gif</div>
         <div class="front-face face">
-            <img src="Imagens&Gifs/back.png" alt="back">
+            <img src="Imagens&Gifs/back.png" alt="back" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="Imagens&Gifs/explodyparrot.gif" alt="">
+            <img src="Imagens&Gifs/explodyparrot.gif" alt="" data-test="face-up-image">
         </div>
     </div>`,
-    `<div onclick="fliparCarta(this)" class="card disponivel">
+    `<div onclick="fliparCarta(this)" class="card disponivel" data-test="card">
         <div class="nomeImagem">fiestaparrot.gif</div>        
         <div class="front-face face">
-            <img src="Imagens&Gifs/back.png" alt="back">
+            <img src="Imagens&Gifs/back.png" alt="back" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="/Imagens&Gifs/fiestaparrot.gif" alt="">
+            <img src="/Imagens&Gifs/fiestaparrot.gif" alt="" data-test="face-up-image">
         </div>
     </div>`,
-    `<div onclick="fliparCarta(this)" class="card disponivel">
+    `<div onclick="fliparCarta(this)" class="card disponivel" data-test="card">
     <div class="nomeImagem">metalparrot.gif</div>
         <div class="front-face face">
-            <img src="Imagens&Gifs/back.png" alt="back">
+            <img src="Imagens&Gifs/back.png" alt="back" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="/Imagens&Gifs/metalparrot.gif" alt="">
+            <img src="/Imagens&Gifs/metalparrot.gif" alt="" data-test="face-up-image">
         </div>
     </div>`,
-    `<div onclick="fliparCarta(this)" class="card disponivel">
+    `<div onclick="fliparCarta(this)" class="card disponivel" data-test="card">
         <div class="nomeImagem">revertitparrot.gif</div>
         <div class="front-face face">
-            <img src="Imagens&Gifs/back.png" alt="back">
+            <img src="Imagens&Gifs/back.png" alt="back" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="/Imagens&Gifs/revertitparrot.gif" alt="">
+            <img src="/Imagens&Gifs/revertitparrot.gif" alt="" data-test="face-up-image">
         </div>
     </div>`,
-    `<div onclick="fliparCarta(this)" class="card disponivel">
+    `<div onclick="fliparCarta(this)" class="card disponivel" data-test="card">
         <div class="nomeImagem">tripletsparrot.gif</div>
         <div class="front-face face">
-            <img src="Imagens&Gifs/back.png" alt="back">
+            <img src="Imagens&Gifs/back.png" alt="back" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="/Imagens&Gifs/tripletsparrot.gif" alt="">
+            <img src="/Imagens&Gifs/tripletsparrot.gif" alt="" data-test="face-up-image">
         </div>
     </div>`,
-    `<div onclick="fliparCarta(this)" class="card disponivel">
+    `<div onclick="fliparCarta(this)" class="card disponivel" data-test="card">
         <div class="nomeImagem">unicornparrot.gif</div>
         <div class="front-face face">
-            <img src="Imagens&Gifs/back.png" alt="back">
+            <img src="Imagens&Gifs/back.png" alt="back" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="/Imagens&Gifs/unicornparrot.gif" alt="">
+            <img src="/Imagens&Gifs/unicornparrot.gif" alt="" data-test="face-up-image">
         </div>
     </div>`
 ];
