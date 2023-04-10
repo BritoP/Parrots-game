@@ -91,6 +91,10 @@ arrayCartas1.sort(comparador);
 arrayCartas2.sort(comparador);
 
 let arrayCompleto = [];
+let arrayProcesso = [];
+let imagemAtual = [];
+let contadorJogadas = 0;
+let contadorPares = 0;
 
 for(i = 0; i <numeroCartasPrompt/2;i++){
     arrayCompleto.push(arrayCartas1[i]);
@@ -105,65 +109,60 @@ for(i=0;i<numeroCartasPrompt;i++){
     local.innerHTML += arrayCompleto[i];
 }
 
-let desligarCarta = document.querySelectorAll(".card");
-let check = [];
-let anterior = [];
+function removeFront(front){
+    front.classList.remove("frontEscolha");
+}
 
-function checkEquivalente(){
+function removeBack(back){
+    back.classList.remove("backEscolha");
+}
 
-    if (check[0] === check[1]){
-        let elemento = document.querySelectorAll(".disponivel");
-        for(i = 0; i<elemento.length;i++){
-            elemento[i].setAttribute('onclick',"fliparCarta(this)");
-        }
-        anterior = [];
-        check = [];
-    }else if(check[0] !== check[1]){
-        anterior[0].classList.remove("flipada");
-        anterior[0].querySelector(".front-face").classList.remove("frontEscolha");
-        anterior[0].querySelector(".back-face").classList.remove("backEscolha");
-        anterior[0].classList.add("disponivel");
-        anterior[1].classList.remove("flipada");
-        anterior[1].querySelector(".front-face").classList.remove("frontEscolha");
-        anterior[1].querySelector("back-face").classList.remove("backEscolha");
-        anterior[1].classList.add("disponivel");
+function fliparCarta(cartaEscolhida){
 
-        let elemento = document.querySelectorAll(".disponível");
-
-        for(i = 0; i < elemento.length;i++){
-            elemento[i].setAttribute("onclick","fliparCarta(this)");
-        }
-
-        check = [];
-        anterior = [];
+    arrayProcesso.push(cartaEscolhida);
+    imagemAtual.push(cartaEscolhida.querySelector(".nomeImagem").innerHTML);
+    if(arrayProcesso.length == 1){
+        let elementoAtualFace = cartaEscolhida.querySelector(".front-face");
+        elementoAtualFace.classList.add("frontEscolha");
+        let elementoAtualBack = cartaEscolhida.querySelector(".back-face");
+        elementoAtualBack.classList.add("backEscolha");
+        cartaEscolhida.classList.remove("disponivel");
+        cartaEscolhida.removeAttribute("onclick");
+    }else if(imagemAtual[0] == imagemAtual[1]){
+        let elementoAtualFace = cartaEscolhida.querySelector(".front-face");
+        elementoAtualFace.classList.add("frontEscolha");
+        let elementoAtualBack = cartaEscolhida.querySelector(".back-face");
+        elementoAtualBack.classList.add("backEscolha");
+        cartaEscolhida.classList.remove("disponivel");
+        cartaEscolhida.removeAttribute("onclick");
+        contadorPares++;
+        arrayProcesso = [];
+        imagemAtual = [];
+    }else{
+        let elementoAtualFace = cartaEscolhida.querySelector(".front-face");
+        elementoAtualFace.classList.add("frontEscolha");
+        let elementoAtualBack = cartaEscolhida.querySelector(".back-face");
+        elementoAtualBack.classList.add("backEscolha");
+        let cartaAnterior = arrayProcesso[0];
+        let elementoAnteriorFace = cartaAnterior.querySelector(".front-face");
+        let elementoAnteriorBack = cartaAnterior.querySelector(".back-face"); 
+        setTimeout(removeFront, 1000 ,elementoAnteriorFace);
+        setTimeout(removeBack, 1000 ,elementoAnteriorBack);
+        setTimeout(removeFront, 1000 ,elementoAtualFace);
+        setTimeout(removeBack, 1000 ,elementoAtualBack);
+        cartaEscolhida.classList.add("disponivel");
+        cartaEscolhida.setAttribute('onclick',"fliparCarta(this)");
+        cartaAnterior.classList.add("disponivel");
+        cartaAnterior.setAttribute('onclick',"fliparCarta(this)");
+        arrayProcesso = [];
+        imagemAtual = [];
+    }
+    contadorJogadas++;
+    if (contadorPares == numeroCartasPrompt/2){
+        alert(`Você ganhou em ${contadorJogadas} jogadas!`);
     }
 }
 
-function fliparCarta(carta){
-    let elemento1 = carta.querySelector(".front-face");
-    elemento1.classList.add("frontEscolha");
-
-    let elemento2 = carta.querySelector(".back-face");
-    elemento2.classList.add("backEscolha");
-
-    carta.classList.add("flipada");
-
-    let elemento3 = carta.querySelector(".nomeImagem").innerHTML;
-
-    carta.classList.remove("disponivel");
-    carta.removeAttribute('onclick');
-
-    check.push(elemento3);
-    anterior.push(carta);
-
-    if(check.length>1){
-
-        for(i = 0; i < arrayCompleto.length; i++){
-            desligarCarta[i].removeAttribute('onclick');
-        }
-        setTimeout(checkEquivalente,1000);
-    }
-}
 
 
 
